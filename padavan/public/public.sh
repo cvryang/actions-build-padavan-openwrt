@@ -4,7 +4,7 @@
 
 user_name='admin'                        # 用户名 admin
 user_password=$user_name                 # 用户密码 admin
-lan_ip='192.168.3'                       # lan 地址 192.168.3.1 一定别写后面的 .1
+lan_ip='10.10.10.1'                       # lan 地址 192.168.3.1 一定别写后面的 .1
 wifi_password='1234567890'               # wifi密码，切记密码最少8位 admin
 version_time=$(date "+%Y%m%d")           # 自动时间更新时版本号: 20200320
 default_path='./user/shared/defaults.h'  # 默认文件配置目录
@@ -45,8 +45,6 @@ sed -i '/CONFIG_FIRMWARE_INCLUDE_SSSERVER/d' .config     # 删除配置项 SS se
 sed -i '/CONFIG_FIRMWARE_INCLUDE_DNSFORWARDER/d' .config # 删除配置项 DNS-FORWARDER
 sed -i '/CONFIG_FIRMWARE_INCLUDE_ADBYBY/d' .config       # 删除配置项 adbyby plus+
 sed -i '/CONFIG_FIRMWARE_INCLUDE_TUNSAFE/d' .config      # 删除配置项 TUNSAFE
-sed -i '/CONFIG_FIRMWARE_INCLUDE_ALIDDNS/d' .config      # 删除配置项 阿里 DDNS
-sed -i '/CONFIG_FIRMWARE_INCLUDE_SMARTDNS/d' .config     # 删除配置项 smartDns
 sed -i '/CONFIG_FIRMWARE_INCLUDE_SRELAY/d' .config       # 删除配置项 srelay 代理
 
 # 3. 添加公共自定义功能，设备单个的到设备 sh文件中添加
@@ -66,16 +64,6 @@ echo "CONFIG_FIRMWARE_INCLUDE_IPT2SOCKS=n" >> .config    # IPT2
 
 # 广告
 echo "CONFIG_FIRMWARE_INCLUDE_ADBYBY=y" >> .config       # adbyby plus+
-
-# DNS 有关
-echo "CONFIG_FIRMWARE_INCLUDE_DNSFORWARDER=n" >> .config # DNS-FORWARDER
-echo "CONFIG_FIRMWARE_INCLUDE_SMARTDNS=y" >> .config     # smartdns
-echo "CONFIG_FIRMWARE_INCLUDE_SMARTDNSBIN=y" >> .config  # smartdns二进制文件
-
-# 其他
-
-echo "CONFIG_FIRMWARE_INCLUDE_MENTOHUST=n" >> .config    # MENTOHUST 锐捷认证
-echo "CONFIG_FIRMWARE_INCLUDE_SCUTCLIENT=n" >> .config   # SCUT校园网客户端 
 
 # Default
 
